@@ -18,7 +18,7 @@ namespace ToDoApp
 
             builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-           // builder.Services.AddRazorPages();
+            // builder.Services.AddRazorPages();
 
             builder.Services.AddControllersWithViews();
 

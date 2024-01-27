@@ -35,6 +35,7 @@ namespace ToDoApp.Controllers
 
             var toDoList = await _context.ToDoList
                 .Include(t => t.User)
+                .Include(t => t.Items)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (toDoList == null)
             {
@@ -64,7 +65,7 @@ namespace ToDoApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", toDoList.UserId);
+            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email", toDoList.UserId);
             return View(toDoList);
         }
 
@@ -81,7 +82,7 @@ namespace ToDoApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", toDoList.UserId);
+            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email", toDoList.UserId);
             return View(toDoList);
         }
 
@@ -117,7 +118,7 @@ namespace ToDoApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", toDoList.UserId);
+            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email", toDoList.UserId);
             return View(toDoList);
         }
 

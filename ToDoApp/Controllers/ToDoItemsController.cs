@@ -48,8 +48,8 @@ namespace ToDoApp.Controllers
         // GET: ToDoItems/Create
         public IActionResult Create()
         {
-            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id");
-            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Id");
+            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email");
+            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Title");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace ToDoApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", toDoItem.AsigneeId);
-            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Id", toDoItem.ToDoListId);
+            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email", toDoItem.AsigneeId);
+            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Title", toDoItem.ToDoListId);
             return View(toDoItem);
         }
 
@@ -84,8 +84,8 @@ namespace ToDoApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", toDoItem.AsigneeId);
-            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Id", toDoItem.ToDoListId);
+            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email", toDoItem.AsigneeId);
+            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Title", toDoItem.ToDoListId);
             return View(toDoItem);
         }
 
@@ -121,8 +121,8 @@ namespace ToDoApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", toDoItem.AsigneeId);
-            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Id", toDoItem.ToDoListId);
+            ViewData["AsigneeId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email", toDoItem.AsigneeId);
+            ViewData["ToDoListId"] = new SelectList(_context.ToDoList, "Id", "Title", toDoItem.ToDoListId);
             return View(toDoItem);
         }
 

@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
+using ToDoApp.Data;
 using ToDoApp.Models;
 
 namespace ToDoApp.Controllers
@@ -7,14 +10,27 @@ namespace ToDoApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<AppUser> userManager)
         {
             _logger = logger;
+            _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
+            int usersCount = _userManager.Users.Count();
+            int toDoListsCount = _context.ToDoList.Count();
+            int toDoItemsCount = _context.ToDoItem.Count();
+            ViewBag["UsersCount"] = usersCount;
+            ViewBag["ToDoListsCount"] = toDoListsCount;
+            ViewBag["ToDoItems"] = toDoItemsCount;
+
+
+
+
             return View();
         }
 
