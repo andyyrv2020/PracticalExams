@@ -12,7 +12,7 @@ using ToDoApp.Data;
 namespace ToDoApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240127173119_ToDoAppReal")]
+    [Migration("20240127174028_ToDoAppReal")]
     partial class ToDoAppReal
     {
         /// <inheritdoc />
@@ -369,9 +369,9 @@ namespace ToDoApp.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("ToDoApp.Data.ToDoList", "ToDoList")
-                        .WithMany("Item")
+                        .WithMany("Items")
                         .HasForeignKey("ToDoListId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Asignee");
@@ -392,7 +392,7 @@ namespace ToDoApp.Data.Migrations
 
             modelBuilder.Entity("ToDoApp.Data.ToDoList", b =>
                 {
-                    b.Navigation("Item");
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("ToDoApp.Data.AppUser", b =>

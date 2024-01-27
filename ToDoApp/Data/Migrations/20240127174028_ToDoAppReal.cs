@@ -82,8 +82,7 @@ namespace ToDoApp.Data.Migrations
                         name: "FK_ToDoItem_ToDoList_ToDoListId",
                         column: x => x.ToDoListId,
                         principalTable: "ToDoList",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

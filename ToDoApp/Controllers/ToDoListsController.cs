@@ -47,7 +47,7 @@ namespace ToDoApp.Controllers
         // GET: ToDoLists/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id");
+            ViewData["UserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Email");
             return View();
         }
 
