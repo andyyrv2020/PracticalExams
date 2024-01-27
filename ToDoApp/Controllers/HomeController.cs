@@ -24,9 +24,9 @@ namespace ToDoApp.Controllers
             int usersCount = _userManager.Users.Count();
             int toDoListsCount = _context.ToDoList.Count();
             int toDoItemsCount = _context.ToDoItem.Count();
-            ViewBag["UsersCount"] = usersCount;
-            ViewBag["ToDoListsCount"] = toDoListsCount;
-            ViewBag["ToDoItems"] = toDoItemsCount;
+            ViewData["UsersCount"] = usersCount;
+            ViewData["ToDoListsCount"] = toDoListsCount;
+            ViewData["ToDoItems"] = toDoItemsCount;
 
 
 
