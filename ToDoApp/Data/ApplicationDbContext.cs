@@ -10,6 +10,17 @@ namespace ToDoApp.Data
             : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<ToDoList>()
+            .HasMany(tdl => tdl.Items)
+            .WithOne(tdi => tdi.ToDoList)
+            .OnDelete(DeleteBehavior.NoAction);
+
+            base.OnModelCreating(builder);
+        }
+
         public DbSet<ToDoApp.Data.ToDoList> ToDoList { get; set; } = default!;
         public DbSet<ToDoApp.Data.ToDoItem> ToDoItem { get; set; } = default!;
     }

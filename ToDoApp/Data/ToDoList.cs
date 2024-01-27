@@ -14,11 +14,11 @@ namespace ToDoApp.Data
         public virtual AppUser? User { get; set; }
 
         public string Title { get; set; }
-        public virtual List<ToDoItem> Item { get; set; }
+        public virtual List<ToDoItem> Items { get; set; }
 
         public ToDoList()
         {
-            Item = new List<ToDoItem>();
+            Items = new List<ToDoItem>();
         }
     }
 }
