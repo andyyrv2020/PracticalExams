@@ -1,10 +1,10 @@
 ﻿@model ToDoApp.Data.ToDoItem
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details - Assignment";
 }
 
-<h1>Details</h1>
+<h1>Details - Assignment</h1>
 
 <div>
     <h4>ToDoItem</h4>
@@ -14,7 +14,7 @@
             @Html.DisplayNameFor(model => model.Asignee)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Asignee.Id)
+            @Html.DisplayFor(model => model.Asignee.Email)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Title)

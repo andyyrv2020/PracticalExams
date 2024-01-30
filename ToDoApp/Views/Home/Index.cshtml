@@ -1,32 +1,29 @@
-﻿	﻿@{
+﻿    ﻿@{
     ViewData["Title"] = "Statistics";
-}
-<h1>Statistics</h1>
+    }
+<h1>Dashboard</h1>
 
 <div class="container">
 
-	<div class="row">
+    <div class="row">
 
-		<div class="three col-md-4">
-			<div class="counter-box colored">
-				<i class="fa fa-thumbs-o-up"></i>
-				<span class="counter">@ViewData["UsersCount"]</span>
-				<p>Users</p>
-			</div>
-		</div>
-		<div class="three col-md-4">
-			<div class="counter-box">
-				<i class="fa fa-group"></i>
-				<span class="counter">@ViewData["ToDoListsCount"]</span>
-				<p>To Do Lists</p>
-			</div>
-		</div>
-		<div class="three col-md-4">
-			<div class="counter-box">
-				<i class="fa  fa-shopping-cart"></i>
-				<span class="counter">@ViewData["ToDoItems"]</span>
-				<p>To Do Items</p>
-			</div>
-		</div>
-	</div>
+        <div class="three col-md-4">
+            <div class="counter-box colored">
+                <span class="counter">@ViewData["UsersCount"]</span>
+                <p>Users</p>
+            </div>
+        </div>
+        <div class="three col-md-4">
+            <div class="counter-box">
+                <span class="counter">@ViewData["ToDoListsCount"]</span>
+                <p>To Do Lists</p>
+            </div>
+        </div>
+        <div class="three col-md-4">
+            <div class="counter-box">
+                <span class="counter">@ViewData["ToDoItems"]</span>
+                <p>To Do Items</p>
+            </div>
+        </div>
+    </div>
 </div>

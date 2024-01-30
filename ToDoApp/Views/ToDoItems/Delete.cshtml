@@ -1,10 +1,10 @@
 ﻿@model ToDoApp.Data.ToDoItem
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete - Assignment";
 }
 
-<h1>Delete</h1>
+<h1>Delete - Assignment</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Asignee)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Asignee.Id)
+            @Html.DisplayFor(model => model.Asignee.Email)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
