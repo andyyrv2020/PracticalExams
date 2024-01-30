@@ -27,10 +27,6 @@ namespace ToDoApp.Controllers
             ViewData["UsersCount"] = usersCount;
             ViewData["ToDoListsCount"] = toDoListsCount;
             ViewData["ToDoItems"] = toDoItemsCount;
-
-
-
-
             return View();
         }
 

@@ -4,66 +4,80 @@
     ViewData["Title"] = "Assignments";
 }
 
-<div class="container p-3">
+<div class="container">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Assignments Lists</h2>
+            <h2 class="text-primary">Assignments List</h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="ToDoItems" asp-action="Create" class="btn btn-primary">
-                <i class="bi bi-plus-square"></i>Add New Assignment
+            <a asp-controller="ToDoItems" asp-action="Create" class="btn btn-primary btn-sm">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New Assignment
             </a>
         </div>
     </div>
 </div>
 
-<table class="table table-bordered table-striped" style="width:100%">
+
+<table class="table table-primary table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Asignee)
             </th>
-            <th>
+
+            <th class ="text-center">
                 @Html.DisplayNameFor(model => model.Title)
             </th>
-            <th>
+
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Deadline)
             </th>
-            <th>
+
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                To Do List Count    
+
+            <th class="text-center">
+                To Do List Count
             </th>
-            <th>
+
+            <th class="text-center">
                 Actions
             </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Asignee.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deadline)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ToDoList.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Asignee.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Deadline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ToDoList.Id)
+                </td>
+                <td class="text-center" >
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        <i class="bi bi-file-text"></i> Details
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
