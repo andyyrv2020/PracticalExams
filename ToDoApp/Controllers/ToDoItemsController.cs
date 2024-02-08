@@ -60,6 +60,7 @@ namespace ToDoApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,AsigneeId,Title,Deadline,Description,ToDoListId")] ToDoItem toDoItem)
         {
+            
             if (ModelState.IsValid)
             {
                 _context.Add(toDoItem);
